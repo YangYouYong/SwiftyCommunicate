@@ -65,6 +65,10 @@ class ViewController: UIViewController {
                 print("Zen: \(message)")
             }
         }
+        
+        if type == 3 {
+            print("TODO: ^_^")
+        }
     }
 
 }
