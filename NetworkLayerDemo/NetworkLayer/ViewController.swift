@@ -9,15 +9,28 @@
 import UIKit
 import Moya
 import Alamofire
+import RxSwift
+
+import RxCocoa
+import Action
+import NSObject_Rx
 
 class ViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
     
+    private var requestCommand: Action<(String, String), Void>?
+    private var provider = MoyaProvider<BMW>()
+    
+    let responseObject = BehaviorRelay<Any?>(value: nil)
+    
+    var rxprovider: Networking = Networking.newDefaultNetworking()
+    
     var requestType:[String] = ["Original Network",
                                 "Alamofire",
                                 "Moya",
-                                "RxMoya"]
+                                "RxMoya",
+                                "开挂的RxMoya"]
     override func viewDidLoad() {
         super.viewDidLoad()
         print("\(NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0])")
@@ -25,6 +38,26 @@ class ViewController: UIViewController {
         OriginalNetwork.post()
         
         OriginalNetwork.get()
+        
+        requestCommand = Action(workFactory: { (username, password) in
+
+            return Observable.create({[unowned self] (observer) -> Disposable in
+
+                self.rxprovider
+                    .request(.login("jackwu","fa39d424037d94cb4efcbfd5e4b05b9e6a8bb91c"))
+                    .filterSuccessfulStatusCodes()
+                    .mapJSON()
+                    .bind(to: self.responseObject)
+                    .disposed(by: self.rx.disposeBag)
+
+                observer.onCompleted()
+                return Disposables.create()
+            })
+        })
+        
+        _ = responseObject.asObservable().subscribe(onNext: { (obj) in
+            print("resp:\(String(describing: obj))")
+        })
     }
 
     override func didReceiveMemoryWarning() {
@@ -67,7 +100,46 @@ class ViewController: UIViewController {
         }
         
         if type == 3 {
-            print("TODO: ^_^")
+            
+            _ = provider.rx
+                .request(.login("jackwu","fa39d424037d94cb4efcbfd5e4b05b9e6a8bb91c"))
+                .filterSuccessfulStatusCodes()
+                .mapJSON()
+                .subscribe { event in
+                    
+                    // serializer
+                switch event {
+                    case .success(let response):
+                        print("response:\(response)")
+                    case .error(let error):
+                        print("errored: \(error)")
+                }
+            }
+            
+            
+            // 20007
+            _ = provider.rx
+                .request(.userProfile("20007"))
+                .filterSuccessfulStatusCodes()
+                .mapJSON()
+                .subscribe { event in
+                    
+                    // serializer
+                    switch event {
+                    case .success(let response):
+                        print("response:\(response)")
+                    case .error(let error):
+                        print("errored: \(error)")
+                    }
+            }
+        }
+        
+        if type == 4 {
+            
+            _ = requestCommand!.execute(("jackwu", "fa39d424037d94cb4efcbfd5e4b05b9e6a8bb91c"))
+            
+            print("type 4")
+            
         }
     }
 

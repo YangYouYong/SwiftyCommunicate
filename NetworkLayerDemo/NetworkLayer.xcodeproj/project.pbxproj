@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		7094A8FEC293DDAD8B5F47C5 /* Pods_NetworkLayerUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 29C88B37EB12B9470169F56B /* Pods_NetworkLayerUITests.framework */; };
+		C0628B3F20B3BFDA006CF232 /* BMWAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0628B3E20B3BFDA006CF232 /* BMWAPI.swift */; };
+		C0628B4220B3E427006CF232 /* BMWRxMoyaAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0628B4120B3E427006CF232 /* BMWRxMoyaAPI.swift */; };
+		C0628B4420B4101E006CF232 /* NetworkLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0628B4320B4101E006CF232 /* NetworkLogger.swift */; };
 		C09F7AB420B3077700F6C1E5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C09F7AB320B3077700F6C1E5 /* AppDelegate.swift */; };
 		C09F7AB620B3077700F6C1E5 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C09F7AB520B3077700F6C1E5 /* ViewController.swift */; };
 		C09F7AB920B3077700F6C1E5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C09F7AB720B3077700F6C1E5 /* Main.storyboard */; };
@@ -46,6 +49,9 @@
 		81767B1F4B358D9048BB779F /* Pods-NetworkLayerUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NetworkLayerUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-NetworkLayerUITests/Pods-NetworkLayerUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		86C0DCCCFC3E623DBFD905A3 /* Pods_NetworkLayer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NetworkLayer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9FF6147359F3A7F9F0C13815 /* Pods-NetworkLayer.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NetworkLayer.release.xcconfig"; path = "Pods/Target Support Files/Pods-NetworkLayer/Pods-NetworkLayer.release.xcconfig"; sourceTree = "<group>"; };
+		C0628B3E20B3BFDA006CF232 /* BMWAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BMWAPI.swift; sourceTree = "<group>"; };
+		C0628B4120B3E427006CF232 /* BMWRxMoyaAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BMWRxMoyaAPI.swift; sourceTree = "<group>"; };
+		C0628B4320B4101E006CF232 /* NetworkLogger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkLogger.swift; sourceTree = "<group>"; };
 		C09F7AB020B3077700F6C1E5 /* NetworkLayer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NetworkLayer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C09F7AB320B3077700F6C1E5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C09F7AB520B3077700F6C1E5 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -116,6 +122,16 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		C0628B3D20B3BA08006CF232 /* RxMoya */ = {
+			isa = PBXGroup;
+			children = (
+				C0628B3E20B3BFDA006CF232 /* BMWAPI.swift */,
+				C0628B4120B3E427006CF232 /* BMWRxMoyaAPI.swift */,
+				C0628B4320B4101E006CF232 /* NetworkLogger.swift */,
+			);
+			path = RxMoya;
+			sourceTree = "<group>";
+		};
 		C09F7AA720B3077700F6C1E5 = {
 			isa = PBXGroup;
 			children = (
@@ -141,6 +157,7 @@
 		C09F7AB220B3077700F6C1E5 /* NetworkLayer */ = {
 			isa = PBXGroup;
 			children = (
+				C0628B3D20B3BA08006CF232 /* RxMoya */,
 				C09F7AE620B31B9800F6C1E5 /* Moya */,
 				C09F7AE120B3079700F6C1E5 /* OriginalNetwork */,
 				C09F7AB320B3077700F6C1E5 /* AppDelegate.swift */,
@@ -199,6 +216,7 @@
 				C09F7AAD20B3077700F6C1E5 /* Frameworks */,
 				C09F7AAE20B3077700F6C1E5 /* Resources */,
 				F01AF09EF669B15979E88862 /* [CP] Embed Pods Frameworks */,
+				0CE92F0AC342A1702C8C8F0A /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -217,6 +235,8 @@
 				C09F7AC020B3077800F6C1E5 /* Sources */,
 				C09F7AC120B3077800F6C1E5 /* Frameworks */,
 				C09F7AC220B3077800F6C1E5 /* Resources */,
+				EC38B784E653BEAC19B5E717 /* [CP] Embed Pods Frameworks */,
+				7D3EF66D92AC161EFD5189CF /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -236,6 +256,8 @@
 				C09F7ACB20B3077800F6C1E5 /* Sources */,
 				C09F7ACC20B3077800F6C1E5 /* Frameworks */,
 				C09F7ACD20B3077800F6C1E5 /* Resources */,
+				56D44664590474BDD5BBF355 /* [CP] Embed Pods Frameworks */,
+				8BE2A12161F265D6B8C7BF0E /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -318,6 +340,66 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		0CE92F0AC342A1702C8C8F0A /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-NetworkLayer/Pods-NetworkLayer-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		56D44664590474BDD5BBF355 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-NetworkLayerUITests/Pods-NetworkLayerUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		7D3EF66D92AC161EFD5189CF /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-NetworkLayerTests/Pods-NetworkLayerTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		8BE2A12161F265D6B8C7BF0E /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-NetworkLayerUITests/Pods-NetworkLayerUITests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		9B986742DEF762521AF3675C /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -354,6 +436,21 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		EC38B784E653BEAC19B5E717 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-NetworkLayerTests/Pods-NetworkLayerTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		F01AF09EF669B15979E88862 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -361,15 +458,31 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-NetworkLayer/Pods-NetworkLayer-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Action/Action.framework",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/CryptoSwift/CryptoSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/Moya/Moya.framework",
+				"${BUILT_PRODUCTS_DIR}/NSObject+Rx/NSObject_Rx.framework",
+				"${BUILT_PRODUCTS_DIR}/ReachabilitySwift/Reachability.framework",
 				"${BUILT_PRODUCTS_DIR}/Result/Result.framework",
+				"${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework",
+				"${BUILT_PRODUCTS_DIR}/RxOptional/RxOptional.framework",
+				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Action.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CryptoSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Moya.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/NSObject_Rx.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Reachability.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Result.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxCocoa.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxOptional.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -401,8 +514,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C0628B4420B4101E006CF232 /* NetworkLogger.swift in Sources */,
 				C09F7AB620B3077700F6C1E5 /* ViewController.swift in Sources */,
+				C0628B4220B3E427006CF232 /* BMWRxMoyaAPI.swift in Sources */,
 				C09F7AB420B3077700F6C1E5 /* AppDelegate.swift in Sources */,
+				C0628B3F20B3BFDA006CF232 /* BMWAPI.swift in Sources */,
 				C09F7AE320B307B600F6C1E5 /* OriginalNetwork.swift in Sources */,
 				C09F7AE820B31BAA00F6C1E5 /* GitHubAPI.swift in Sources */,
 			);
