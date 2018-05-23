@@ -24,8 +24,6 @@ private func JSONResponseDataFormatter(_ data: Data) -> Data {
 
 var BMWProvider = MoyaProvider<BMW>(plugins: [NetworkLoggerPlugin(verbose: true, responseDataFormatter: JSONResponseDataFormatter)])
 
-//let BMWProvider =
-
 // MARK: - Provider support
 
 private extension String {
@@ -43,7 +41,7 @@ extension BMW: TargetType {
     public var baseURL: URL { return URL(string: "https://bmw.vechaindev.com")! }
     public var path: String {
         switch self {
-        case .login(let username, let password):
+        case .login(_ , _):
             return "/api/v1/users/login"
         case .userProfile(let name):
             return "/api/v1/users/\(name.urlEscaped)"
@@ -67,21 +65,17 @@ extension BMW: TargetType {
     }
     public var validationType: ValidationType {
         switch self {
-        case .login(_, _), .userProfile(_):
+        case .login(_, _),
+             .userProfile(_):
             return .successCodes
-        default:
-            return .none
+//        default:
+//            return .none
         }
     }
     public var sampleData: Data {
         switch self {
-//        case .zen:
         default:
             return "Half measures are as bad as nothing at all.".data(using: String.Encoding.utf8)!
-//        case .userProfile(let name):
-//            return "{\"login\": \"\(name)\", \"id\": 100}".data(using: String.Encoding.utf8)!
-//        case .userRepositories(let name):
-//            return "[{\"name\": \"\(name)\"}]".data(using: String.Encoding.utf8)!
         }
     }
     public var headers: [String: String]? {
