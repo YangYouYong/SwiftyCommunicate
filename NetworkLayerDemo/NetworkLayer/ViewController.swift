@@ -88,15 +88,15 @@ class ViewController: UIViewController {
         }
         
         if type == 2 {
-            gitHubProvider.request(.zen) { result in
-                var message = "Couldn't access API"
-                if case let .success(response) = result {
-                    let jsonString = try? response.mapString()
-                    message = jsonString ?? message
-                }
-                
-                print("Zen: \(message)")
-            }
+//            gitHubProvider.request(.zen) { result in
+//                var message = "Couldn't access API"
+//                if case let .success(response) = result {
+//                    let jsonString = try? response.mapString()
+//                    message = jsonString ?? message
+//                }
+//
+//                print("Zen: \(message)")
+//            }
         }
         
         if type == 3 {
